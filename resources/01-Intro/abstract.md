@@ -28,8 +28,8 @@
     * IntelliJ IDEA + Scala Plugin
       * Jak można dostać licencję
     * VSCode + Metals
-    * build systems: sbt, Mill, Gradle, Maven
-    * ScalaCLI
+    * build systems: sbt, Mill, Gradle, Maven - krótkie omówienie, reszta w osobnym wykładzie
+    * ScalaCLI - krótkie omówienie, reszta w osobnym wykładzie
 * Projekt na zaliczenie
     * Podział na zespoły (wspomnieć, że będzie o tym wykład)
     * Założenie repozytorium na GitHub (wspomnieć, że będzie o tym wykład)

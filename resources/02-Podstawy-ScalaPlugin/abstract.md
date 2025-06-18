@@ -24,7 +24,7 @@
   * Unused code analysis
   * Wsparcie dla build tools (wspomnieć, że będzie o tym osobny wykład)
   * Inlay hints + X-Ray
-* Jak korzystać z AI Assistant
+* Jak korzystać z AI Assistant (ewentualnie można z tego zrobić osobny wykład)
   * Chat
   * Code completion
 

@@ -25,6 +25,10 @@
   * Teoria
   * Te same dwa przykłady w nowej implementacji
   * Wersja for/yield
+* Lazy List
+  * Omówienie implementacji
+  * Przykład ciągu Fibonacciego zaimplementowanego za pomocą lazy list
+  * Porównanie i omówienie optymalizacji względem innych metod
 * Implementacja drzewa binarnego na enumach
   * Wersja hardcoded dla typu Int
   * Rekurencyjna unkcja print
