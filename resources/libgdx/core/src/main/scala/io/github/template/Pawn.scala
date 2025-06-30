@@ -1,8 +1,11 @@
 package io.github.template
 
-import java.nio.file.{Paths, Path}
+import com.badlogic.gdx.graphics.Texture
 
-case class Pawn(position: Position)
+import java.nio.file.{Path, Paths}
+
+case class Pawn(position: Position, icon: Path = Pawn.icon):
+  lazy val texture: Texture = new Texture(icon.toString)
 
 object Pawn:
     val icon: Path = Paths.get("pawn.png")

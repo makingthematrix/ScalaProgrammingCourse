@@ -13,62 +13,86 @@ import java.nio.file.Paths
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 class Main extends ApplicationAdapter:
-  private var shapeRenderer: ShapeRenderer = null
-  private var batch: SpriteBatch = null
-  private var pawnTexture: Texture = null
-  private val pawn = Pawn(Position(4, 4))
+  import Main.*
 
-  // Chess board properties
-  private val BOARD_SIZE = 8 // 8x8 chess board
-  private val SQUARE_SIZE = 50f // Size of each square in pixels
+  private lazy val shapeRenderer: ShapeRenderer = new ShapeRenderer()
+  private lazy val batch: SpriteBatch = new SpriteBatch()
+  private lazy val pawnTexture: Texture = new Texture(Pawn.icon.toString)
+
   private lazy val graphicsWidth = Gdx.graphics.getWidth
   private lazy val graphicsHeight = Gdx.graphics.getHeight
 
   override def create(): Unit =
-    println(Paths.get(".").toAbsolutePath)
-    println(Pawn.icon.toAbsolutePath)
-    shapeRenderer = new ShapeRenderer()
-    batch = new SpriteBatch()
-    pawnTexture = new Texture(Pawn.icon.toString)
+    shapeRenderer
+    batch
+    pawnTexture
     graphicsWidth
     graphicsHeight
+
+  private def drawBoard(): Unit =
+      for
+        row <- 0 until BOARD_SIZE
+        col <- 0 until BOARD_SIZE
+      do
+        // Determine if the square should be black or white
+        // If row + col is even, it's white; if odd, it's black
+        shapeRenderer.setColor(if (row + col) % 2 == 0 then Color.WHITE else Color.BLACK)
+        // Calculate isometric coordinates
+        val isoX = start.x + (col - row) * TILE_WIDTH / 2f + BOARD_SIZE * TILE_WIDTH / 2f
+        val isoY = start.y + (col + row) * TILE_HEIGHT / 2f
+        // Draw the isometric tile (diamond shape)
+        shapeRenderer.triangle(
+            isoX, isoY + TILE_HEIGHT / 2f,
+            isoX + TILE_WIDTH / 2f, isoY,
+            isoX + TILE_WIDTH, isoY + TILE_HEIGHT / 2f
+        )
+        shapeRenderer.triangle(
+            isoX, isoY + TILE_HEIGHT / 2f,
+            isoX + TILE_WIDTH, isoY + TILE_HEIGHT / 2f,
+            isoX + TILE_WIDTH / 2f, isoY + TILE_HEIGHT
+        )
+
+  private def draw(pawn: Pawn): Unit =
+    // Calculate isometric coordinates for the pawn
+    val pawnIsoX = start.x + (pawn.position.x - pawn.position.y) * TILE_WIDTH / 2f + BOARD_SIZE * TILE_WIDTH / 2f
+    val pawnIsoY = start.y + (pawn.position.x + pawn.position.y + 1f) * TILE_HEIGHT / 2f
+
+    // Adjust the pawn position to center it on the tile
+    val pawnX = pawnIsoX + (TILE_WIDTH - SQUARE_SIZE) / 2f
+    val pawnY = pawnIsoY - SQUARE_SIZE / 4f // Adjust to position pawn on the tile
+
+    batch.draw(pawn.texture, pawnX, pawnY, SQUARE_SIZE, SQUARE_SIZE)
+
+  private lazy val start: (x: Float, y: Float) =
+    // Calculate the width and height of the isometric board
+    val isoWidth = (BOARD_SIZE + BOARD_SIZE) * TILE_WIDTH / 2f
+    val isoHeight = (BOARD_SIZE + BOARD_SIZE) * TILE_HEIGHT / 2f
+    // Calculate the starting position to center the board
+    val startX = (graphicsWidth - isoWidth) / 2f - isoWidth / 16f
+    val startY = (graphicsHeight - isoHeight) / 2f // Adjust to center vertically
+    (startX, startY)
 
   override def render(): Unit =
     // Clear the screen
     ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f)
-
-    // Calculate the starting position to center the board
-    val startX = (graphicsWidth - BOARD_SIZE * SQUARE_SIZE) / 2
-    val startY = (graphicsHeight - BOARD_SIZE * SQUARE_SIZE) / 2
-
     // Begin shape rendering in filled mode
     shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
-
-    // Draw the chess board
-    for row <- 0 until BOARD_SIZE do
-      for col <- 0 until BOARD_SIZE do
-        // Determine if the square should be black or white
-        // If row + col is even, it's white; if odd, it's black
-        if (row + col) % 2 == 0 then
-          shapeRenderer.setColor(Color.WHITE)
-        else
-          shapeRenderer.setColor(Color.BLACK)
-
-        // Draw the square
-        val x = startX + col * SQUARE_SIZE
-        val y = startY + row * SQUARE_SIZE
-        shapeRenderer.rect(x, y, SQUARE_SIZE, SQUARE_SIZE)
-
+    drawBoard()
     shapeRenderer.end()
-
     // Draw the pawn
     batch.begin()
-    val pawnX = startX + pawn.position.x * SQUARE_SIZE
-    val pawnY = startY + pawn.position.y * SQUARE_SIZE
-    batch.draw(pawnTexture, pawnX, pawnY, SQUARE_SIZE, SQUARE_SIZE)
+    draw(Pawn(Position("B2")))
+    draw(Pawn(Position("G3")))
     batch.end()
 
   override def dispose(): Unit =
     shapeRenderer.dispose()
     batch.dispose()
     pawnTexture.dispose()
+
+object Main:
+  // Chess board properties
+  private val BOARD_SIZE = 8 // 8x8 chess board
+  private val SQUARE_SIZE = 80f // Size of each square in pixels
+  private val TILE_WIDTH = SQUARE_SIZE // Width of isometric tile
+  private val TILE_HEIGHT = SQUARE_SIZE / 2 // Height of isometric tile (half of width for 2:1 ratio)
