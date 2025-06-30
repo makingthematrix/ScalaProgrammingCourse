@@ -41,6 +41,7 @@
     * Timeline i zasady oceniania
       * Nie tylko rezultat, ale też historia współpracy na GitHubie
       * Możliwość prezentacji na wykładach
+      * AI: wolno, a wręcz należy
     * Kontakt z wykładowcą
 * Konferencje i meetupy
   * Scala Days
