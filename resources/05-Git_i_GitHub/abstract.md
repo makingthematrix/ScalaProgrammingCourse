@@ -5,7 +5,7 @@ Ten wykład to wprowadzenie do systemu kontroli wersji Git oraz jego praktycznyc
 
 Następnie omówimy podstawowe polecenia Gita, takie jak `init`, `clone`, `checkout`, `branch`, `commit` i `push`, które są niezbędne do codziennego użytkowania. Poruszymy również kwestię rozwiązywania konfliktów w Git: omówimy sytuacje, w których występują konflikty, oraz jak sobie z nimi radzić za pomocą poleceń takich jak `blame`, `cherry-pick`, `merge`, `rebase`, `reflog` i `reset`.
 
-Następnie omówimy Git Flow, model rozgałęzień dla Gita, oraz platformę GitHub. Pokażę studentom, jak założyć repozytorium, wybrać odpowiednią licencję i omówię funkcje GitHuba, takie jak Issues, Pull Requests i GitHub Actions. Dodatkowo omówimy krótko platformę GitLab oraz wtyczkę GitHub w IntelliJ IDEA.
+Następnie omówimy podstawowe modele pracy z git'em, oraz platformę GitHub. Pokażę studentom, jak założyć repozytorium, wybrać odpowiednią licencję i omówię funkcje GitHuba, takie jak Issues, Pull Requests i GitHub Actions. Dodatkowo omówimy krótko platformę GitLab oraz wtyczkę GitHub w IntelliJ IDEA.
 
 ### Plan wykładu
 
@@ -19,6 +19,7 @@ Następnie omówimy Git Flow, model rozgałęzień dla Gita, oraz platformę Git
 * Podstawowe komendy git
   * init
   * clone (ssh, http)
+  * config
   * checkout (-b, -i, squash)
   * branch
   * commit (-a, -m)

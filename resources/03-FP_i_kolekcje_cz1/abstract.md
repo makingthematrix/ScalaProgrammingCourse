@@ -11,7 +11,8 @@ Może to powinno być po wykładzie o Scala Collections? Albo połączyć te dwa
   * Zwracanie i składanie funkcji (generatory, currying)
 * System typów
   * Higher Kinded Types na przykładzie Seq
-  * Option jako alternatywa dla nullability
+  * Option jako alternatywa dla nullability - napisać własne Option
+  * Covariance i contravariance na przykładzie producenta i konsumenta
 * Przykład z "Many Happy Early Returns"
   * Wersja imperatywna
   * Omówienie kodu wspólnego dla wszystkich wersji

@@ -28,3 +28,14 @@
 
 ### Notatki
 * Przejrzeć tę prezentację: https://github.com/polyvariant/flavors-of-scala
+* Pekko tutorial: https://pekko.apache.org/docs/pekko-samples/current/pekko-sample-cluster-scala/
+
+Use Junie to generate an example app:
+"Implement a simple Pekko app with two actors.
+* Each actor has a simple name: Alicia and Bob
+* They send each other a message every 5 seconds with the content string: "Hi [name]".
+* The received message is printed out with a prefix "Message from [sender's name] to [receiver's name]: [message]".
+* The messages are implemented as case classes and the actor system is typed.
+* There is a shutdown message sent to both of them after a minute after they start working.
+
+This is supposed to be a tutorial on how Pekko works. Write meaningful ScalaDoc for each class and method."

@@ -8,8 +8,8 @@
   * Składnia (pętle, if/else, match/case, itp)
   * Funkcje i metody
   * case class, case object, companion object, trait, sealed trait, enum
-  * Porównanie sealed trait i enum na przykładzie implementacji drzewa binarnego
-  * Słówka kluczowe final, inline, transparent
+  * Porównanie sealed trait i enum 
+  * Słówka kluczowe final, inline
   * Extension methods
   * apply i unapply
   * dopasowanie wzorców (pattern matching)

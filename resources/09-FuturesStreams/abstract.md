@@ -36,4 +36,4 @@ def doStuffAsynchronously(arg: Arg): IO[RetVal] = // no niby najprościej ALE
 żeby zrozumieć co się dzieje tutaj musisz zrozumieć WSZYSTKO co było wcześniej PLUS zrozumieć suspension czyli jakie wyrażenia są referentially transparent, a jakie nie są
 bonus: dlaczego Ox i loom:
 def doStuff(arg: Arg): RetVal = ???
-```
+``` 

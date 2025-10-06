@@ -14,16 +14,38 @@
 * Wprowadzenie do języka Scala
     * Historia i motywacje stojące za powstaniem Scali
     * Obecna sytuacja na rynku IT
-        * Główne frameworki
-            * Play Framework
-            * Akka/Pekko
-            * Cats
-            * ZIO
-        * Przykłady firm używających Scali
-            * Databricks
-            * Disney+
-            * The Guardian
-            * dawniej Twitter
+    * Główne frameworki
+      * Play Framework
+      * Akka/Pekko
+      * Cats
+      * ZIO
+      * Li Haoyi's ecosystem
+* Przykłady firm używających Scali
+    * Databricks (data mining)
+    * Disney+ (streaming)
+    * The Guardian (Play Framework, backend)
+    * dawniej Twitter (backend)
+    * Netflix (through Spark)
+    * Spotify (through Spark)
+    * Epic Games (Akka, for Fortnite)
+    * Tesla (Akka)
+    * Zalando (webstore)
+    * Lichess (backend)
+    * MOIA (backend)
+    * Mastercard (backend)
+    * Morgan Stanley (chyba te backend)
+    * SiriusXM
+    * Writer
+    * Apple Maps
+* Firmy w Polsce
+  * JetBrains
+  * VirtusLab
+  * SoftwareMill
+  * Iterators
+* Konferencje i meetupy
+  * Scala Days
+  * W Warszawie: Scalar, Art of Scala
+  * ScalaWAW meetups
 * Tooling
     * IntelliJ IDEA + Scala Plugin
       * Jak można dostać licencję
@@ -43,8 +65,3 @@
       * Możliwość prezentacji na wykładach
       * AI: wolno, a wręcz należy
     * Kontakt z wykładowcą
-* Konferencje i meetupy
-  * Scala Days
-  * W Warszawie: Scalar, Art of Scala
-  * ScalaWAW meetups
-  * Biuro JetBrains
