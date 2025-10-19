@@ -13,6 +13,7 @@ Może to powinno być po wykładzie o Scala Collections? Albo połączyć te dwa
   * Higher Kinded Types na przykładzie Seq
   * Option jako alternatywa dla nullability - napisać własne Option
   * Covariance i contravariance na przykładzie producenta i konsumenta
+  * Inlay hints + X-Ray
 * Przykład z "Many Happy Early Returns"
   * Wersja imperatywna
   * Omówienie kodu wspólnego dla wszystkich wersji
@@ -22,4 +23,10 @@ Może to powinno być po wykładzie o Scala Collections? Albo połączyć te dwa
   * Skomplikowana wersja imperatywna
   * Skomplikowana wersja FP
   * Refaktoryzacja przykładu FP z wykorzystanie Higher Kinded Types
+* Jak korzystać z AI Assistant (ewentualnie można z tego zrobić osobny wykład)
+  * Chat
+  * Code completion
 
+### Notatki:
+* [IntelliJ IDEA x Scala: Inlay Hints and X-Ray Mode](https://www.youtube.com/watch?v=akKLlEcCSBg)
+* 

@@ -33,3 +33,10 @@ Z tych repozytoriów możecie korzystać aby szybciej rozpocząć pracę nad Was
 * [Play Example](https://github.com/makingthematrix/PlayExample) - Prosty przykład aplikacji webowej, napisanej w Play Framework.
 * [Pekko Example](https://github.com/makingthematrix/PekkoExample) - Prosty przykład aplikacji serwerowej, napisanej w Pekko.
 
+
+
+### Inne
+
+* Więcej przykładowych aplikacji w Play Framework: https://github.com/playframework/play-samples
+
+  
