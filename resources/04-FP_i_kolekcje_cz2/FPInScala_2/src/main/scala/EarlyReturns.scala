@@ -61,10 +61,10 @@ object  EarlyReturns {
       }
     }
 
-   def findFirstValidUser(userIds: Seq[UserId]): Option[UserData] =
-     userIds.collectFirst {
-       case ValidUser(user) => user
-     }
+    def findFirstValidUser(userIds: Seq[UserId]): Option[UserData] =
+      userIds.collectFirst {
+        case ValidUser(user) => user
+      }
   }
 
   // safeComplexConversion

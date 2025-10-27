@@ -38,3 +38,4 @@
 *.metals*
 *.bsp
 .DS_Store
+out/*
