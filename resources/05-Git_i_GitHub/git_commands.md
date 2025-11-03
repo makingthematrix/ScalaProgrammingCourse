@@ -1,147 +1,202 @@
-# What is a version control system?
-A version control system (VCS) in programming is a tool that helps developers manage changes to their source code over time. It allows multiple developers to collaborate on a project, keep track of changes, and revert to previous versions if necessary. Key features of a version control system include:
-Repositories: Storage locations for your code and its history.
-Commits: Snapshots of changes made to the codebase.
-Branches: Independent lines of development that can be merged together.
-Merges: Combining changes from different branches.
-Pull/Push: Synchronizing changes between local and remote repositories.
+# System kontroli wersji (VCS)
+System kontroli wersji (VCS) w programowaniu to narzędzie, które pomaga programistom zarządzać zmianami wprowadzanymi w kodzie źródłowym na przestrzeni czasu. Umożliwia współpracę wielu developerów nad jednym projektem, śledzenie zmian oraz powrót do wcześniejszych wersji, jeśli zajdzie taka potrzeba.
+Główne funkcje systemu kontroli wersji to:
 
-# Examples of real-world projects where version control systems played a critical role in success
-* Linux Kernel: The development of the Linux kernel involves thousands of contributors worldwide. Version control systems, particularly Git, are essential for managing this massive collaborative effort.
-* Apache Software Foundation: Projects under the Apache Software Foundation, such as Apache HTTP Server and Apache Hadoop, rely heavily on version control systems for collaborative development and release management.
-* Microsoft Windows: The development of Microsoft Windows involves a large team of developers. Version control systems are used to manage the complex codebase and ensure that changes are tracked and coordinated effectively.
+Repozytoria: Miejsca przechowywania kodu oraz jego historii zmian.
+Commity: Migawki wprowadzonych zmian w kodzie.
+Gałęzie (branche): Niezależne linie rozwoju kodu, które można scalać ze sobą.
+Scalanie (merge): Łączenie zmian z różnych gałęzi.
+Pull/Push: Synchronizacja zmian między lokalnym a zdalnym repozytorium.
 
-# Benefits of using version control systems
-Improved collaboration: Version control systems facilitate teamwork by allowing multiple developers to work on the same codebase simultaneously.
-History tracking: Changes made to the codebase are recorded, making it easy to track who made what changes and when.
-Rollback capabilities: If a bug is introduced, developers can revert to a previous version of the codebase to fix the issue.
-Branching and merging: Version control systems allow developers to work on different features or bug fixes independently, then merge them back into the main codebase when ready.
+# Przykłady projektów, w których systemy kontroli wersji odegrały kluczową rolę
+* Jądro systemu Linux: Rozwój jądra Linux angażuje tysiące współtwórców na całym świecie. Systemy kontroli wersji, zwłaszcza Git, są niezbędne do zarządzania tą ogromną współpracą.
+* Apache Software Foundation: Projekty takie jak Apache HTTP Server czy Apache Hadoop opierają się na systemach kontroli wersji, aby umożliwić współpracę zespołową oraz efektywne zarządzanie wydaniami.
+* Microsoft Windows: Tworzenie systemu Windows wymaga pracy dużego zespołu developerów. Systemy kontroli wersji są wykorzystywane do zarządzania skomplikowaną bazą kodu oraz zapewnienia śledzenia i koordynacji zmian.
+
+# Korzyści z używania systemów kontroli wersji
+* Poprawa współpracy: Systemy kontroli wersji ułatwiają pracę zespołową, umożliwiając wielu developerom pracę nad tym samym kodem źródłowym jednocześnie.
+* Śledzenie historii: Wszelkie zmiany wprowadzone w kodzie są rejestrowane, co pozwala łatwo sprawdzić, kto, kiedy i jakie zmiany wprowadził.
+* Możliwość wycofywania zmian: W przypadku wprowadzenia błędu deweloperzy mogą powrócić do wcześniejszej wersji kodu, aby naprawić problem.
+* Gałęzie i scalanie: Systemy kontroli wersji umożliwiają pracę nad różnymi funkcjonalnościami lub poprawkami niezależnie, a następnie scalenie ich z główną wersją kodu, gdy są gotowe.
 
 # CVS vs SVN vs git
-CVS: Concurrent Version System, operuje na plikach (problemy ze zmianą nazw), identyfikatory: liczby
-SVN: Apache Subversion, operuje na plikach (ale zmiana nazw możliwa, identyfikatory: liczby
-Git: Git, operuje na tekście, identyfikatory: SHA-1
+* CVS: Concurrent Version System, operuje na plikach (problemy ze zmianą nazw), identyfikatory: liczby
+* SVN: Apache Subversion, operuje na plikach (ale zmiana nazw możliwa, identyfikatory: liczby
+* Git: Git, operuje na tekście, identyfikatory: SHA-1
 
-# Motivations behind git development:
-* Performance: Git was designed to handle large projects efficiently, such as the Linux kernel, which involves thousands of contributors and a massive codebase.
-* Distributed Workflow: The Linux kernel development process is highly distributed, with contributors from around the world. Git's distributed nature allows developers to work independently and synchronize changes later.
-* Branching and Merging: Git provides more efficient and powerful branching and merging capabilities compared to existing systems like CVS and SVN.
-* Data Integrity: Git uses a hashing mechanism (SHA-1) to ensure the integrity of the data, which was a significant improvement over existing systems.
-* Speed: Git was designed to be fast, particularly for operations like committing, branching, and merging.
-* Local Operations: Git allows most operations to be performed locally, reducing the need to connect to a central server and enabling offline work.
+# Motywacje stojące za rozwojem Gita
+* Wydajność: Git został zaprojektowany, aby efektywnie obsługiwać duże projekty, takie jak jądro systemu Linux, które angażuje tysiące współtwórców i ogromną bazę kodu.
+* Rozproszony przepływ pracy: Proces rozwoju jądra Linux jest wysoce rozproszony, z udziałem programistów z całego świata. Rozproszony charakter Gita umożliwia developerom pracę niezależnie i późniejszą synchronizację zmian.
+* Gałęzie i scalanie: Git oferuje bardziej wydajne i zaawansowane możliwości tworzenia gałęzi i scalania w porównaniu z istniejącymi systemami, takimi jak CVS i SVN.
+* Integralność danych: Git wykorzystuje mechanizm skrótów (SHA-1), aby zapewnić integralność danych, co było znaczną poprawą w stosunku do istniejących rozwiązań.
+* Szybkość: Git został zaprojektowany z myślą o szybkości, szczególnie w przypadku operacji takich jak commity, tworzenie gałęzi i scalanie.
+* Operacje lokalne: Git umożliwia wykonywanie większości operacji lokalnie, zmniejszając potrzebę łączenia się z centralnym serwerem i pozwalając na pracę offline.
 
 # Commands
 
 ### init
-When you run `git init` in a folder, Git creates a new repository in that folder.
-On top of that, it creates a .git subfolder which contains all the metadata and objects that Git needs to manage the repository.
-Initial Files: 
-* objects: Stores all the data for your repository.
-* refs: Contains pointers to commits in your repository.
-* HEAD: A file that points to the current branch you're working on.
-* config: A file that contains configuration settings for your repository.
+Gdy uruchamiasz polecenie git init w folderze, Git tworzy w nim nowe repozytorium. Dodatkowo, tworzony jest podfolder .git, który zawiera wszystkie metadane i obiekty niezbędne do zarządzania repozytorium.
+Początkowe pliki i katalogi:
+* `objects/` – Przechowuje wszystkie dane Twojego repozytorium.
+* `refs/` – Zawiera wskaźniki do commitów w repozytorium.
+* `HEAD` – Plik wskazujący na aktualną gałąź, na której pracujesz.
+* `config` – Plik zawierający ustawienia konfiguracyjne dla repozytorium.
 
 ### clone
-When you run git clone, you create a local copy of a remote repository. This is useful for working on a project hosted on a remote server like GitHub or GitLab.
-You need to specify the URL of the remote repository you want to copy. For example `git clone https://github.com/user/repository.git`
-By default, git clone creates a new directory with the same name as the repository. You can specify a different directory name by adding it as an argument:`git clone https://github.com/user/repository.git new_directory_name`
-The command downloads all the files and metadata from the remote repository to your local machine. This includes all the branches, tags, and commit history.
-After cloning, Git sets up remote tracking branches, allowing you to synchronize your local repository with the remote repository using commands like git fetch and git pull.
-
+Polecenie `git clone` tworzy lokalną kopię zdalnego repozytorium, co jest przydatne przy pracy nad projektem hostowanym na serwerze, takim jak GitHub czy GitLab.
+Jak działa `git clone`?
+Musisz podać adres URL zdalnego repozytorium, które chcesz skopiować, np.:
+`git clone https://github.com/użytkownik/repozytorium.git`
+Domyślnie git clone tworzy nowy katalog o nazwie repozytorium. Możesz jednak określić inną nazwę katalogu, dodając ją jako argument:
+`git clone https://github.com/użytkownik/repozytorium.git nowa_nazwa_katalogu`
+Polecenie ściąga wszystkie pliki i metadane ze zdalnego repozytorium na Twój komputer, w tym wszystkie gałęzie, tagi i historię commitów.
+Po sklonowaniu Git konfiguruje śledzone gałęzie zdalne, dzięki czemu możesz synchronizować lokalne repozytorium ze zdalnym za pomocą poleceń takich jak git fetch i git pull.
 ### config
-Git configuration allows you to customize various aspects of your Git environment. You can set global configurations that apply to all repositories or local configurations that apply only to a specific repository.
-To view your current Git configuration, use the command `git config --list`.
-To set a global configuration, use the command `git config --global <key> <value>`. For example `git config --global user.email "your.email@example.com"`
-To set a local configuration, use the command `git config <key> <value>`. For example `git config user.name "Your Name"`
-List config fields: `git config --list`
-Configuration Files: 
-* System level: /etc/gitconfig
-* Global level: ~/.gitconfig or ~/.config/git/config
-* Local level: .git/config in the repository folder.
+Konfiguracja Gita pozwala dostosować różne aspekty środowiska Git. Możesz ustawić konfigurację globalną (dla wszystkich repozytoriów) lub lokalną (tylko dla konkretnego repozytorium).
+Podstawowe polecenia:
+
+Wyświetlenie aktualnej konfiguracji: `git config --list`
+Ustawienie konfiguracji globalnej: `git config --global <klucz> <wartość>`
+Przykład: `git config --global user.email "twój.email@przyklad.com"`
+
+Ustawienie konfiguracji lokalnej (dla bieżącego repozytorium): `git config <klucz> <wartość>`
+Przykład: `git config user.name "Twoje Imię"`
+
+Pliki konfiguracyjne:
+Poziom systemowy: `/etc/gitconfig`
+Poziom globalny: `~/.gitconfig` lub `~/.config/git/config`
+Poziom lokalny: `.git/config` (w katalogu repozytorium)
 
 ### checkout
-The git checkout command is used for several purposes in Git, including switching branches, restoring files, and checking out specific commits
-* `git checkout <branch_name>` switches to the specified branch.
-* `git checkout <commit_hash>` checks out a specific commit.
-* `git checkout -b <branch_name>` creates a new branch and switches to it.
-* `git checkout -- <file_name>` restores a file to its state in the last commit.
+Polecenie **`git checkout`** służy do kilku celów, takich jak przełączanie gałęzi, przywracanie plików oraz przechodzenie do konkretnych commitów.
+- **`git checkout <nazwa_gałęzi>`** – przełącza się na podaną gałąź.
+- **`git checkout <hash_commita>`** – przechodzi do konkretnego commita.
+- **`git checkout -b <nazwa_gałęzi>`** – tworzy nową gałąź i natychmiast się na nią przełącza.
+- **`git checkout -- <nazwa_pliku>`** – przywraca plik do stanu z ostatniego commita.
 
 ### branch
-The git branch command is used to list, create, or delete branches in a Git repository.
-* `git branch ` lists all branches.
-* `git branch <branch_name>` creates a new branch.
-* `git branch -d <branch_name>` deletes a branch.
-* `git branch -m <old_branch_name> <new_branch_name>` renames a branch.
+Polecenie **`git branch`** służy do wyświetlania, tworzenia i usuwania gałęzi w repozytorium Git.
+- **`git branch`** – wyświetla listę wszystkich gałęzi.
+- **`git branch <nazwa_gałęzi>`** – tworzy nową gałąź.
+- **`git branch -d <nazwa_gałęzi>`** – usuwa wskazaną gałąź.
+- **`git branch -m <stara_nazwa> <nowa_nazwa>`** – zmienia nazwę gałęzi.
+
+### status
+Polecenie **`git status`** wyświetla **aktualny stan repozytorium**, pokazując:
+- **zmodyfikowane pliki**,
+- **pliki przygotowane do commita** (staging area),
+- **pliki nieśledzone**,
+- **stan gałęzi** (czy jest zsynchronizowana ze zdalnym repozytorium).
+- **`git status`** – pokazuje **pełny stan** repozytorium.
+- **`git status -s`** – wyświetla informacje w **skróconej, zwięzłej formie**.
+- **`git status --branch`** – dodatkowo wyświetla informacje o **relacjach między gałęziami**.
 
 ### add
-The git add command adds changes to the staging area, which is a list of changes that will be included in the next commit.
-* `git add <file_name>` adds a specific file to the staging area.
-* `git add .` adds all changes in the current directory to the staging area.
-* `git add -A` adds all changes, including deletions, to the staging area.
+Polecenie **`git add`** dodaje zmiany do **staging area** (obszaru przygotowań), czyli listy zmian, które zostaną uwzględnione w następnym commicie.
+- **`git add <nazwa_pliku>`** – dodaje wskazany plik do staging area.
+- **`git add .`** – dodaje wszystkie zmiany w bieżącym katalogu do staging area.
+- **`git add -A`** – dodaje wszystkie zmiany (w tym usunięcia plików) w całym repozytorium do staging area.
 
-Working Directory: This is the directory where you make changes to your files. It's the place where you edit, create, and delete files. The working directory contains the current state of your project.
-Staging Area: This is an intermediate area where changes are prepared before they are committed to the repository. When you use the git add command, your changes are moved from the working directory to the staging area. This allows you to selectively stage changes and review them before making a commit.
+#### Podstawowe obszary w Git: Working Directory i Staging Area
+**Working Directory (Katalog roboczy):**
+Jest to katalog, w którym wprowadzasz zmiany w plikach – edytujesz, tworysz lub usuwasz je. Zawiera **aktualny stan Twojego projektu**.
 
-If you decide not to commit the staged changes, you can unstage them using `git reset file_name` or to unstage all changes `git reset`
+**Staging Area (Obszar przygotowań):**
+To **pośredni obszar**, w którym zmiany są przygotowywane przed zatwierdzeniem (commitem). Po użyciu polecenia **`git add`**, zmiany przenoszone są z katalogu roboczego do staging area. Dzięki temu możesz **selektywnie wybierać zmiany** i sprawdzać je przed wykonaniem commita.
+
+#### Przywracanie zmian z staging area za pomocą `git reset`:
+Jeśli się rozmyślisz, możesz **cofnąć** zmiany z staging area:
+- **`git reset <nazwa_pliku>`** – cofa zmiany dla wskazanego pliku.
+- **`git reset`** – cofa wszystkie zmiany z staging area.
 
 ### commit
-The git commit command takes a snapshot of the current state of your files and stores it in the repository's history.
-It only commits changes that have been staged, i.e. added with `git add`. Each commit requires a message that describes the changes made.
-* `git commit -m "Your commit message"`
-* `git commit -am "Your commit message"` commits all changes in the working directory. (`git add` still needed but only for new files)
-* `git commit --amend` amends the last commit.
+Polecenie **`git commit`** tworzy **commit aktualnego stanu plików** i zapisuje ją w historii repozytorium. Zatwierdza **tylko zmiany, które zostały przygotowane** (dodane za pomocą `git add`). Każdy commit wymaga **komentarza opisującego wprowadzone zmiany**.
+- **`git commit -m "Twój komunikat commita"`** – zatwierdza przygotowane zmiany z podanym komentarzem.
+- **`git commit -am "Twój komunikat commita"`** – zatwierdza **wszystkie zmiany w katalogu roboczym** (nie dotyczy nowych plików, które nadal wymagają `git add`).
+- **`git commit --amend`** – **modyfikuje ostatni commit** (np. poprawia komunikat lub dodaje zapomniane zmiany).
 
 ### push
-The git push command uploads your local commits to the remote repository, making them available to others.
-* `git push origin <branch_name>` pushes the specified branch to the remote repository.
-* `git push` - after the relation between the local branch and the remote branch has been set up with `git push -u origin <branch_name>`, you can use `git push` to push the current branch to the remote repository.
-* `git push -f` forces the push, overwriting any changes on the remote repository.
-* `git push --force-with-lease` forces the push, but only if the remote branch has not been modified since the last push.
-* `git push --set-upstream origin <branch_name>` sets up the tracking information for the current branch to push to the remote repository.
-* `git push --delete origin <branch_name>` deletes the specified branch from the remote repository.
-* `git push --tags` pushes all tags to the remote repository.
-* `git push --all` pushes all branches to the remote repository.
+Polecenie **`git push`** przesyła **lokalne commity** do zdalnego repozytorium, udostępniając je innym developerom.
+- **`git push origin <nazwa_gałęzi>`** – wysyła wskazaną gałąź do zdalnego repozytorium.
+- **`git push`** – po ustawieniu powiązania między lokalną a zdalną gałęzią (za pomocą `git push -u origin <nazwa_gałęzi>`), wysyła **bieżącą gałąź** do zdalnego repozytorium.
+- **`git push -f`** – wymusza wysłanie, **nadpisując zmiany** w zdalnym repozytorium (uważaj na utratę danych!).
+- **`git push --force-with-lease`** – wymusza wysłanie, ale **tylko jeśli zdalna gałąź nie została zmieniona** od ostatniego pusha (bezpieczniejsza alternatywa dla `-f`).
+- **`git push --set-upstream origin <nazwa_gałęzi>`** – ustawia **śledzenie** dla bieżącej gałęzi i wysyła ją do zdalnego repozytorium.
+- **`git push --delete origin <nazwa_gałęzi>`** – **usuwa** wskazaną gałąź z zdalnego repozytorium.
+- **`git push --tags`** – wysyła **wszystkie tagi** do zdalnego repozytorium.
+- **`git push --all`** – wysyła **wszystkie gałęzie** do zdalnego repozytorium.
 
 ### pull
-The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content.
-* `git pull remote_name branch_name` - to pull changes from a specific branch of a remote repository
-* `git pull` - to pull changes from the default remote repository and default branch
-* `git pull --rebase` - to pull changes from the default remote repository and default branch, but rebase the local branch onto the remote branch instead of merging
+Polecenie **`git pull`** pobiera zmiany ze **zdalnego repozytorium** i natychmiast aktualizuje lokalne repozytorium, dopasowując je do zdalnej wersji.
+- **`git pull <nazwa_zdalnego> <nazwa_gałęzi>`** – pobiera zmiany z **konkretnej gałęzi zdalnego repozytorium**.
+- **`git pull`** – pobiera zmiany z **domyślnego zdalnego repozytorium i domyślnej gałęzi**.
+- **`git pull --rebase`** – pobiera zmiany, ale **przebudowuje lokalne commity na wierzchu zdalnej gałęzi** zamiast scalać (unika niepotrzebnych commitów merge).
 
 ### Kiedy zdarzają się konflikty?
-* Simultaneous Changes: When multiple developers work on the same file and make changes to the same lines of code, conflicts can occur when trying to merge or push these changes.
-* Out-of-Sync Branches: If your local branch is not up-to-date with the remote branch and you make changes that conflict with changes made by someone else, conflicts can occur when you try to push your changes.
-* Merging Branches: When merging branches that have changes to the same part of a file, conflicts can arise if the changes are not compatible.
+- **Jednoczesne zmiany:** Gdy wielu developerów pracuje nad tym samym plikiem i wprowadza zmiany w tych samych liniach kodu, **konflikty mogą wystąpić** podczas próby scalenia lub wysłania zmian.
+- **Niesynchronizowane gałęzie:** Jeśli Twoja lokalna gałąź nie jest zaktualizowana względem zdalnej i wprowadzasz zmiany, które kolidują z zmianami innych, **konflikty mogą pojawić się** podczas próby wysłania swoich modyfikacji.
+- **Scalanie gałęzi:** Podczas łączenia gałęzi zawierających zmiany w tej samej części pliku **konflikty mogą powstać**, jeśli zmiany nie są ze sobą kompatybilne.
 
-### Jak rozwiązywać konflikty?
-* Communication: Maintain open communication within the team about who is working on what. This can help prevent multiple people from making changes to the same part of the code simultaneously.
-* Feature Branches: Use feature branches for developing new features or making significant changes. This isolates changes and makes it easier to manage and merge them.
-* Frequent Pulls: Encourage team members to pull changes from the remote repository frequently. This helps to keep their local branches up-to-date and reduces the chance of conflicts.
+### Jak unikać i rozwiązywać konflikty?
+- **Komunikacja:** Utrzymuj **otwartą komunikację** w zespole na temat tego, kto nad czym pracuje. Pomaga to unikać sytuacji, w której wiele osób wprowadza zmiany w tym samym fragmencie kodu jednocześnie.
+- **Gałęzie funkcjonalne (Feature Branches):** Korzystaj z **oddzielnych gałęzi** dla nowych funkcji lub większych zmian. Izolowanie zmian ułatwia ich zarządzanie i późniejsze scalanie.
+- **Częste pobieranie zmian:** Zachęcaj członków zespołu do **regularnego pobierania zmian** ze zdalnego repozytorium. Dzięki temu lokalne gałęzie są zawsze aktualne, co zmniejsza ryzyko konfliktów.
 
-### blame
-The git blame command provides a line-by-line annotation of a file, showing the author, commit hash, and timestamp of the last modification for each line.
-* `git blame file_name`
+### annotate (dawniej: blame)
+Polecenie **`git annotate`** wyświetla **adnotacje dla każdej linii pliku**, pokazując:
+- **autora ostatniej zmiany**,
+- **hash commita**,
+- **datę i godzinę modyfikacji**.
+Przykład użycia:
+- **`git annotate <nazwa_pliku>`** – pokazuje szczegółowe informacje o ostatnich zmianach dla każdej linii w podanym pliku.
 
 ### log
-The git log command shows the commit history of the repository, including the commit hash, author, date, and commit message.
-* `git log` - shows the full commit history
-* `git log --oneline` - shows the commit history in a single line per commit
-* `git log --graph` - shows the commit history in a graphical format
-* `git log -n` - shows the last n commits
-* `git lg`
+Polecenie **`git log`** wyświetla **historię commitów** w repozytorium, w tym:
+- **hash commita**,
+- **autora**,
+- **datę**,
+- **komunikat commita**.
+- **`git log`** – pokazuje **pełną historię commitów**.
+- **`git log --oneline`** – wyświetla historię w **skróconej formie** (jeden commit w linii).
+- **`git log --graph`** – prezentuje historię w **formie graficznej** (przydatne przy gałęziach).
+- **`git log -n`** – pokazuje **ostatnie n commitów** (np. `git log -5`).
+- **`git lg`** – popularny alias dla `git log --oneline --decorate --graph --all` (wymaga konfiguracji).
 
 ### cherry-pick
-The git cherry-pick command allows you to apply the changes from a specific commit to your current branch.
-* `git cherry-pick commit_hash` - applies the changes from the specified commit to the current branch
-* `git cherry-pick -n commit_hash` - applies the changes from the specified commit to the current branch without committing
-* `git cherry-pick --continue` - continues the cherry-pick operation after resolving conflicts
-* `git cherry-pick --abort` - aborts the cherry-pick operation
-* `git cherry-pick --edit` - allows you to edit the commit message before committing the changes
+Polecenie **`git cherry-pick`** pozwala **zastosować zmiany z konkretnego commita** na bieżącej gałęzi.
+- **`git cherry-pick <hash_commita>`** – przenosi zmiany z podanego commita na bieżącą gałąź.
+- **`git cherry-pick -n <hash_commita>`** – przenosi zmiany **bez automatycznego commita** (pozwala na dodatkowe modyfikacje).
+- **`git cherry-pick --continue`** – kontynuuje operację po rozwiązaniu konfliktów.
+- **`git cherry-pick --abort`** – przerywa operację cherry-pick.
+- **`git cherry-pick --edit`** – umożliwia **edycję komunikatu commita** przed zatwierdzeniem zmian.
+
+### reset
+Polecenie **`git reset`** pozwala **cofnąć zmiany** w repozytorium, przestawiając wskaźnik HEAD oraz – opcjonalnie – stan staging area lub katalogu roboczego do wskazanego commita.
+- **`git reset --soft <hash_commita>`** – cofa wskaźnik HEAD do podanego commita, **zachowując zmiany** w staging area i katalogu roboczym.
+- **`git reset --mixed <hash_commita>`** – cofa wskaźnik HEAD i **usuwa zmiany ze staging area** (domyślne zachowanie), ale zachowuje je w katalogu roboczym.
+- **`git reset --hard <hash_commita>`** – cofa wskaźnik HEAD, **usuwa zmiany** zarówno ze staging area, jak i z katalogu roboczego (uwaga: nieodwracalne!).
+- **`git reset <nazwa_pliku>`** – usuwa wskazany plik **ze staging area**, zachowując zmiany w katalogu roboczym.
+- **`git reset --merge`** – przerywa operacje takie jak merge lub rebase, zachowując zmiany w katalogu roboczym.
 
 ### merge
+Polecenie **`git merge`** łączy zmiany z **jednej gałęzi** z **bieżącą gałęzią**, tworząc nowy commit scalenia, jeśli jest to konieczne.
+- **`git merge <nazwa_gałęzi>`** – scala wskazaną gałąź z bieżącą, tworząc commit scalenia (jeśli nie ma konfliktów).
+- **`git merge --no-ff <nazwa_gałęzi>`** – zawsze tworzy **commit scalenia**, nawet jeśli możliwe jest szybkie przesunięcie (fast-forward).
+- **`git merge --squash <nazwa_gałęzi>`** – scala zmiany jako **pojedynczy nowy commit**, bez automatycznego zatwierdzania.
+- **`git merge --continue`** – kontynuuje scalanie po rozwiązaniu konfliktów.
+- **`git merge --abort`** – przerywa scalanie i przywraca stan sprzed rozpoczęcia operacji.
 
+### rebase
+Polecenie **`git rebase`** pozwala **przenosić, łączyć lub modyfikować sekwencję commitów**, umieszczając je na nowej podstawie. Umożliwia utrzymanie **czystszej, liniowej historii projektu**.
+- **`git rebase <nazwa_gałęzi>`** – przenosi commity z bieżącej gałęzi **na wierzch wskazanej gałęzi**, zapewniając liniową historię.
+- **`git rebase -i <nazwa_gałęzi>`** – uruchamia **interaktywny rebase**, umożliwiając edycję, scalanie lub zmianę kolejności commitów przed ich ponownym zastosowaniem.
+- **`git rebase --continue`** – kontynuuje operację rebase po rozwiązaniu konfliktów.
+- **`git rebase --abort`** – przerywa rebase i przywraca gałąź do stanu sprzed rozpoczęcia operacji.
 
-
+YouTube:
+1. Merge vs rebase: https://www.youtube.com/watch?v=dWT9cr0A-JY
+2. Interkatywny rebase: https://www.youtube.com/watch?v=6NYVXNoBYz8
+2. Git i GitHub w 60 minut:  https://www.youtube.com/watch?v=Ebe9D5zRkvM
 
 
 

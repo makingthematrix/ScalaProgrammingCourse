@@ -10,7 +10,11 @@ object  EarlyReturns {
     database.find(_.id == userId).get
 
   // complex validation
-  def complexValidation(user: UserData): Boolean = ???
+  def complexValidation(user: UserData): Boolean = user.email.count(_ == '@') == 1 &&
+    !user.email.contains(' ') &&
+    user.email.split('@').forall(
+      _.forall(c => c.isLetter || c.isDigit || c == '.' || c == '-' || c == '_')
+    )
   // userIds from 1 to 11
   
   private val userIds: Seq[UserId] = 1 to 11
@@ -129,8 +133,13 @@ object  EarlyReturns {
     }
 
     object ValidUserFoo extends Deconstruct[UserId, UserData] {
-      def convert(userId: UserId): Option[UserData] = safeComplexConversion(userId)
-      def validate(user: UserData): Boolean = complexValidation(user)
+      override def convert(userId: UserId): Option[UserData] = database.find(_.id == userId)
+      override def validate(user: UserData): Boolean =
+        user.email.count(_ == '@') == 1 &&
+          !user.email.contains(' ') &&
+          user.email.split('@').forall(
+            _.forall(c => c.isLetter || c.isDigit || c == '.' || c == '-' || c == '_')
+          )
     }
 
     def findFirstValidUser(userIds: Seq[UserId]): Option[UserData] =
