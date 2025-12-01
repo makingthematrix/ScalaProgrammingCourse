@@ -1,7 +1,6 @@
 package org.fpinscala.finished
 
-import org.fpinscala.{UserData, UserService}
-
+import org.fpinscala.UserData
 import scala.io.StdIn.readLine
 
 // 12
@@ -11,7 +10,7 @@ object OptionEitherTry {
 
   object WithExceptions {
     def findParent(name: String): UserData = {
-      val user = UserService.findUser(name) // Java
+      val user = UserData.findUser(name) 
       val parentId = parents(user.id)
       database.find(_.id == parentId).get
     }

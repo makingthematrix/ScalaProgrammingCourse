@@ -10,7 +10,7 @@ object OptionEitherTry {
 
   object WithExceptions {
     def findParent(name: String): UserData = {
-      val user = UserService.findUser(name)
+      val user = UserData.findUser(name)
       val parentId = parents(user.id)
       database.find(_.id == parentId).get
     }
@@ -18,7 +18,7 @@ object OptionEitherTry {
 
   object WithTry {
     def findParent(name: String): Try[UserData] = {
-      Try(UserService.findUser(name))
+      Try(UserData.findUser(name))
         .flatMap(user => Try(parents(user.id)))
         .flatMap(parentId => Try(database.find(_.id == parentId).get))
     }
@@ -52,7 +52,7 @@ object OptionEitherTry {
     def findParent2(name: String): Either[String, UserData] = ??? //flatMap
   }
 
-/*
+
   @main def main(): Unit = {
     val name = read()
     val parent = WithTry.findParent(name)
@@ -60,20 +60,8 @@ object OptionEitherTry {
       case Failure(exception) => println(exception.getMessage)
       case Success(parent) => println(parent.name)
     }
-*/
-
-
-
-    // exception
-
-    // Option
-
-
-    // Either
-
-    // Try (wrap the exception)
-
-  
+  }
+    
   // try out with:
   // John Doe (-> Michael Brown),
   // Maciek (-> not in the database),

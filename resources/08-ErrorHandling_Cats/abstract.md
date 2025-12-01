@@ -1,4 +1,4 @@
-# Monady
+ed# Monady
 
 ### Wymagania:
 * Dla tematu Option/Either potrzebna jest znajomość total vs partial functions
