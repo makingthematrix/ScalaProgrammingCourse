@@ -1,13 +1,15 @@
 # Czego możecie się uczyć dalej?
 (Where Do We Go Now?!)
 
+https://roadmap.sh/r/scala-learning-path
+
 Scala jest językiem programistycznym ogólnego użytku, ale najczęściej aplikacje w nim napisane można spotkać w następujących niszach:
 
 * Backend
 * Data mining
 * Video streaming
 * Narzędzia, biblioteki i frameworki open-source
-* Cryptocurrency
+* Cryptocurrency (but please don't)
 
 Oraz jako hobby:
 
@@ -61,8 +63,7 @@ Oraz jako hobby:
     * "Finatra builds on TwitterServer and uses Finagle, Finatra at its core is agnostic to the type of service or application being created. It can be used to build anything based on TwitterUtil."
   * Cask (https://com-lihaoyi.github.io/cask/)
     * "Cask is a simple Scala web framework inspired by Python's Flask project. It aims to bring simplicity, flexibility and ease-of-use to Scala webservers, avoiding cryptic DSLs or complicated asynchrony."
-  * smithy4s (https://smithy.io/2.0/)
-    * "smithy4s is a code generator for building APIs in Scala. It generates code for clients and servers, and supports multiple protocols."
+
 * Data mining
   * Spark (https://spark.apache.org)
     * "Apache Spark is a unified analytics engine for large-scale data processing. It provides high-level APIs in Java, Scala, Python and R, and an optimized engine that supports general execution graphs."
