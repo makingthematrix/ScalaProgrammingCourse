@@ -23,7 +23,7 @@ object UserData {
     UserData(10, "Isabella Jackson", "isabella@gmail.com", 30),
     UserData(11, "Alexander White", "alexander@yahoo.com", 25)
   )
-  
+
   def findUser(name: String): UserData = {
     database.find(_.name == name).get
   }
@@ -42,7 +42,7 @@ object UserData {
 
   def databaseAsJava(): java.util.Collection[UserData] = database.asJavaCollection
 
-  val FilePath: Path = Paths.get("resources/users.csv")
+  val FilePath: Path = Paths.get("users.csv")
 
   def fromLine(line: String): UserData = {
     val arr = line.split(",")

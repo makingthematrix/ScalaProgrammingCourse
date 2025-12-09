@@ -1,5 +1,8 @@
 package org.fpinscala
 
+import cats.Foldable.ops.toAllFoldableOps
+import org.fpinscala.UserData.databaseAsJava
+
 import scala.io.StdIn.readLine
 import scala.util.{Failure, Success, Try}
 
@@ -52,16 +55,64 @@ object OptionEitherTry {
     def findParent2(name: String): Either[String, UserData] = ??? //flatMap
   }
 
-
-  @main def main(): Unit = {
-    val name = read()
-    val parent = WithTry.findParent(name)
-    parent match {
-      case Failure(exception) => println(exception.getMessage)
-      case Success(parent) => println(parent.name)
-    }
+  sealed trait MyOption[T] {
+    def flatMap[X](f: T => MyOption[X]): MyOption[X]
   }
-    
+
+  case class MySome[T](value: T) extends MyOption[T] {
+    override def flatMap[X](f: T => MyOption[X]): MyOption[X] = f(value)
+  }
+
+  case object MyNone extends MyOption[Nothing]{
+    override def flatMap[X](f: Nothing => MyOption[X]): MyOption[X] = MyNone.asInstanceOf[MyOption[X]]
+  }
+
+  object MyOption {
+    def apply[T](value: T): MyOption[T] =
+      if (value != null) MySome(value)
+      else MyNone.asInstanceOf[MyOption[T]]
+  }
+
+  def findOrNull(name: String): UserData =
+    database.find(_.name == name) match {
+      case Some(value) => value
+      case None => null
+    }
+
+  def findOrNull(userId: UserId): UserData =
+    database.find(_.id == userId) match {
+      case Some(value) => value
+      case None => null
+    }
+
+  def parentOrNull(userId: UserId): UserId =
+    parents.get(userId) match {
+      case Some(value) => value
+      case None => null.asInstanceOf[UserId]
+    }
+
+  def main(): Unit = {
+    val numbers = Seq(1, 2, 3)
+    val chars = Seq('a', 'b', 'c')
+
+    val newSeq = for {
+      n <- numbers
+      c <- chars
+    } yield s"$n$c"
+
+    //println(res)
+    /*val name = read()
+    val parent = WithEither.findParent(name)
+    parent match {
+      case Left(value) => println(s"Error: $value")
+      case Right(value) => println(value)
+    }*/
+      //println(parent.name)
+    //} catch {
+    //  case exception: Exception => println(exception.getMessage)
+    //}
+  }
+
   // try out with:
   // John Doe (-> Michael Brown),
   // Maciek (-> not in the database),
