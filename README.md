@@ -1,4 +1,4 @@
-# Programowanie w Scali (MiMUW, 2025)
+# Programowanie w Scali (MiMUW 2025 / MiNI PW 2026)
 Znajdziecie tutaj slajdy i notatki z wykładów. Będę je stopniowo uzupełniał, najczęściej przed i po danym wykładzie, ale już teraz możecie zajrzeć do podkatalogów związanych z tematami, o których będziemy mówić w przyszłych tygodniach.
 
 
