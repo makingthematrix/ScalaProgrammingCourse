@@ -25,10 +25,3 @@
 ### Notatki:
 * [IntelliJ IDEA x Scala: Inlay Hints and X-Ray Mode](https://www.youtube.com/watch?v=akKLlEcCSBg)
 
-Nie zdążyłem opowiedzieć o:
-* Zwracanie i składanie funkcji (generatory, currying)
-* Covariance i contravariance na przykładzie producenta i konsumenta
-* Refaktoryzacja przykładu early returns FP z wykorzystanie Higher Kinded Types
-  * Skomplikowana wersja imperatywna
-  * Skomplikowana wersja FP
-* Jak korzystać z AI Assistant 
