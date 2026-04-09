@@ -34,7 +34,7 @@ object Collections {
   // filter - we already discussed it
 
   // find
-  val res =usersSeq.find { user => user.email.endsWith("@proton.me") }
+  val res = usersSeq.find { user => user.email.endsWith("@proton.me") }
 
   // foreach
   usersSeq.foreach(user => println(s"This is ${user.name}"))

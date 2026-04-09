@@ -17,7 +17,7 @@
 * Przykłady
   * Silnia
   * Ciąg Fibonacciego
-* Jak debugger pomaga w zrozumieniu działania pfunkcji rekurencyjnej
+* Jak debugger pomaga w zrozumieniu działania funkcji rekurencyjnej
 * Tail recurrency
   * Teoria
   * Te same dwa przykłady w nowej implementacji
