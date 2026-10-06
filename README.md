@@ -1,17 +1,15 @@
-# Programowanie w Scali (MiMUW 2025 / MiNI PW 2026)
+# Programowanie w Scali (MiMUW / MiNI PW; 2025 - 2027)
 Znajdziecie tutaj slajdy i notatki z wykładów. Będę je stopniowo uzupełniał, najczęściej przed i po danym wykładzie, ale już teraz możecie zajrzeć do podkatalogów związanych z tematami, o których będziemy mówić w przyszłych tygodniach.
-
-
 
 ### Dodatkowe źródła
 
 * [FP in Scala - repozytorium](https://github.com/makingthematrix/FPInScala) oraz [FP in Scala - kurs interaktywny](https://plugins.jetbrains.com/plugin/23833-functional-programming-in-scala) - Materiały edukacyjne, skupiające się na podstawach Functional Programming w Scala 3. Będziemy korzystać z nich na zajęciach.
 * https://docs.scala-lang.org/ - Oficjalna dokumentacja Scali
+* [Scala Learning Roadmap](https://roadmap.sh/scala) - Zbiór informacji o Scali, jej ekosystemie i proponowanej kolejności tematów do nauki.
 * [Alvin Alexander - filmy i kursy](https://www.learnscala.dev/) 
 * [Alvin Alexander - blog](https://alvinalexander.com/search/#gsc.tab=0) - Alvin przez wiele lat prowadził.bloga, na którym wyjaśniał podstawy Scali. Aby odnaleźć jego wpisy na dany temat, skorzystajcie z funkcji "Szukaj" i wpiszcie nazwę dowolnego zagadnienia po angielsku.
 * [Noel Welsh](https://noelwelsh.com/landing/books/) - Noel pisze książki o programowaniu w Scali; ma też wiele przykładowych projektów na GitHubie.
-* [Dev Inside You](https://www.youtube.com/@DevInsideYou/videos) - polecam tego youtubera
-* [Rock the JVM](https://www.youtube.com/@rockthejvm/videos) - i tego też
+* [Rock the JVM](https://www.youtube.com/@rockthejvm/videos) - polecam tego youtubera
 
 ### Małe projekty programistyczne
 
