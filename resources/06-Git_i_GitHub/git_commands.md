@@ -195,7 +195,7 @@ Polecenie **`git rebase`** pozwala **przenosić, łączyć lub modyfikować sekw
 
 YouTube:
 1. Merge vs rebase: https://www.youtube.com/watch?v=dWT9cr0A-JY
-2. Interkatywny rebase: https://www.youtube.com/watch?v=6NYVXNoBYz8
+2. Interaktywny rebase: https://www.youtube.com/watch?v=6NYVXNoBYz8
 2. Git i GitHub w 60 minut:  https://www.youtube.com/watch?v=Ebe9D5zRkvM
 
 
